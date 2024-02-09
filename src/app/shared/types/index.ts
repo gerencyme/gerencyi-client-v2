@@ -7,6 +7,7 @@ export * from "./TZipCode";
 export * from "./TSupplier";
 export * from "./TProduct";
 export * from "./TOrderStatus";
+export * from "./TCreateSession";
 
 // RESPONSES
 export * from "./responses/TCompanyResponse";

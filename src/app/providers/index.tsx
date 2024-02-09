@@ -5,18 +5,18 @@ import { queryClient } from "@shared/services/reactQuery";
 import { ReactNode } from "react";
 import { QueryClientProvider } from "react-query";
 
-interface ProvidersProps {
+type TProvidersProps = {
   children: ReactNode;
-}
+};
 
-export function Providers({ children }: ProvidersProps) {
+export function Providers({ children }: TProvidersProps) {
   const composeProviders =
     (
       ...providers: {
-        ({ children }: any): JSX.Element;
+        ({ children }: TProvidersProps): JSX.Element;
       }[]
     ) =>
-    (props: { children: any }) =>
+    (props: { children: ReactNode }) =>
       providers.reduceRight(
         (children, Provider) => <Provider {...props}>{children}</Provider>,
         props.children,

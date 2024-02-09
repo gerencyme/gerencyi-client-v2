@@ -24,7 +24,10 @@ export function maskCpfOrCnpj(value: string) {
 
 export const formatPrice = (price: number | undefined | string) => {
   const numericPrice =
-    typeof price === "string" ? parseFloat(price.replace(",", ".")) : price;
+    typeof price === "string"
+      ? parseFloat(price.replace(",", ".").trim())
+      : price;
+
   return numericPrice?.toLocaleString("pt-BR", {
     style: "currency",
     currency: "BRL",

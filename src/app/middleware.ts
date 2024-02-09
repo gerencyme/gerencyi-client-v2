@@ -3,7 +3,7 @@
  */
 
 import { TSessionCustomer } from "@shared/types";
-import { APP_ROUTES } from "@shared/utils/app-routes";
+import { APP_ROUTES } from "@shared/utils/constants/app-routes";
 import { sessionToken } from "@shared/utils/constants/cookies";
 import { NextRequest, NextResponse } from "next/server";
 

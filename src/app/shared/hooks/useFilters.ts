@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-import { formateDate } from "../utils/dates";
-import { TProductCard } from "@shared/types";
+import { formateDate } from "@shared/utils/dates";
+import { TOrderStatus, TProductCard } from "@shared/types";
 import {
   filterMonthsOptions,
   filterStatusOptions,
@@ -17,7 +17,9 @@ export const useFilters = (data: TProductCard[]) => {
   const defaultMonthLabel = filterMonthsOptions[currentMonth].label;
 
   const [currentMonthFilter, setCurrentMonth] = useState(defaultMonthLabel);
-  const [selectedStatus, setSelectedStatus] = useState("todos");
+  const [selectedStatus, setSelectedStatus] = useState<TOrderStatus | "todos">(
+    "todos",
+  );
 
   const monthIndex = filterMonthsOptions.findIndex(
     (item) => item.label === currentMonthFilter,
@@ -30,7 +32,7 @@ export const useFilters = (data: TProductCard[]) => {
 
     return data?.filter((item) => {
       const formattedDate = formateDate(item.orderDate);
-      const dateMonth = parseInt(formattedDate.split("/")[1], 10);
+      const dateMonth = parseInt(formattedDate?.split("/")[1], 10);
 
       return (
         dateMonth === monthToFilter &&

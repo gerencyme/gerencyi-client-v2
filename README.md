@@ -26,7 +26,8 @@ Tecnologias no Escopo da aplicação
 * Jest
 * Eslint e Prettier
 * Axios
-* Firebase Analytics
+* Vercel Analitics
+* Vercel Speed Insight
 
 ## Formulários
 
@@ -46,7 +47,8 @@ Tecnologias no Escopo da aplicação
 * Jest
 * Testing Library
 
- - Preferencialmente testar de 70% a 100% do covarage
+ - Formatadores devem ser testados para manter a integridade dos dados formatados para o usuário final
+ - Em hooks e funcções, apenas testar a lógica principal para garantir a funcionalidade e evitar quebras inesperadas do serviço
  - Componentes que não incluem lógica não há real necessidade de testes
  - Dado o uso do Prettier 3+, toMatchInlineSnapshot não é compatível, usar apenas toMatchSnapshot
 
