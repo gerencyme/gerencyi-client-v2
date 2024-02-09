@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">Portal Administração</h1>
 
-## Getting Started
+<details open="open">
+  <summary>Sumário</summary>
+  <ol>
+    <li><a href="#Tecnologias">Tecnologias</a></li>
+    <li><a href="#Formulários">Formulários</a></li>
+    <li><a href="#Headless Components">Headless Components</a></li>
+    <li><a href="#Ícones">Ícones</a></li>
+    <li><a href="#Testes">Testes</a></li>
+    <li><a href="#Arquitetura">Arquitetura</a></li>
+    <li><a href="#Padronização de código">Padronização de código</a></li>
+    <li><a href="#Fluxo do git">Fluxo do git</a></li>
+    <li><a href="#Deploy">Deploy</a></li>
+    <li><a href="#Inicialização">Inicialização</a></li>
+  </ol>
+</details>
 
-First, run the development server:
+## Tecnologias
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Tecnologias no Escopo da aplicação
+* NextJs
+* React
+* TypeScript
+* Tailwindcss
+* Jest
+* Eslint e Prettier
+* Axios
+* Firebase Analytics
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Formulários
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* React Hooks Forms
+* Zod
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Headless Components
 
-## Learn More
+* radixUi
 
-To learn more about Next.js, take a look at the following resources:
+## Ícones
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* React Icons
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Testes
 
-## Deploy on Vercel
+* Jest
+* Testing Library
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+ - Preferencialmente testar de 70% a 100% do covarage
+ - Componentes que não incluem lógica não há real necessidade de testes
+ - Dado o uso do Prettier 3+, toMatchInlineSnapshot não é compatível, usar apenas toMatchSnapshot
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Arquitetura
+
+<img src="src/app/assets/architecture.png" />
+
+## Padronização de código
+
+- **Geral**
+    - Componentes Headless do radix devem ser importados com Radix no nome p.ex.: import * as ComponentRadix from '...'
+    - Componentes devem ser finalizados com .tsx
+    - Estrutura de componentes devem seguir Composition Pattern sempre que possível
+    - Componentes reutilizáveis devem ser alocados em ~shared
+    - Funções utilitárias devem estar em arquivos separados, p.ex.: MyComponentUtils.ts
+    - Outras funções devem estar separadas dentro da pasta conroller da feature.
+    - Funções para chamada de api devem estar na pasta services da feature.
+    - Requisições devem ser feitas com react-query.
+    - Sempre que possível, fazer utilização de cache.
+    - Index devem exportar o objeto de acordo com Composition Pattern
+    - Formulários devem respeitar o padrão react-hook-form e ser criados schemas em MyComponentUtils.ts
+    - Toda a regra de UX deve estar dentro de Tailwind.config.ts
+    - Sempre que possível, a estilização deve ser feita com Tailwind Variants
+    - Tailwind Variants deve estar em arquivos separados, p.ex.: MyComponentTV.ts na raíz da pasta do componente
+
+## Fluxo do git
+  Ao pegar uma task, você deve criar uma branch para criá-la individualmente. P.ex.: feat/header. Esta branch deve ser focada na criação do Header. Outro exemplo é 'fix/search', esta deve ser focada na correção do bug no search e assim por diante...
+
+## Deploy
+  Após finalizar a task, rodar yarn build e checar logs de warning e erros a serem validados. Após o build ser bem sucedido, mesclar na branch Homolog e, novamente, rodar o build do projeto. Caso o build seja bem executado, publique o seu merge com git push para subir a feat para homologação.
+
+## Inicialização
+
+1. Instale as dependências com Yarn
+   ```sh
+   yarn
+   ```
+1. Iniciar em Desenvolvimento
+    ```sh
+    yarn dev
+    ```
+2. Iniciar em Produção
+    build
+   ```sh
+   yarn build
+   ```
+   Após o build
+   ```sh
+   yarn start
+   ```
