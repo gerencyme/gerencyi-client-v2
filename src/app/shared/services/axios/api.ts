@@ -3,8 +3,9 @@ import { ApiError } from "next/dist/server/api-utils";
 import { parseCookies } from "nookies";
 import { toast } from "react-toastify";
 import { destroyCookie } from "nookies";
-import { sessionToken } from "@shared/utils/constants/cookies";
+import { getNewAccessToken } from "@shared/services/axios/getNewAccessToken";
 import { TSessionCustomer } from "@shared/types";
+import { sessionToken } from "@shared/utils/constants/cookies";
 
 const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -18,8 +19,14 @@ api.interceptors.request.use((config) => {
   const sessionCustomer: TSessionCustomer =
     stringfyiedSessionCustomer && JSON.parse(stringfyiedSessionCustomer);
 
+  const authorization =
+    config.headers.Authorization ?? sessionCustomer?.accessToken;
+
+  if (String(authorization).includes("Bearer ")) {
+    String(authorization).replace("Bearer ", "");
+  }
   if (sessionCustomer) {
-    config.headers.Authorization = `Bearer ${sessionCustomer?.sesstionToken}`;
+    config.headers.Authorization = `Bearer ${authorization}`;
     config.headers.RefresToken = sessionCustomer?.refreshToken;
   }
 
@@ -28,7 +35,7 @@ api.interceptors.request.use((config) => {
 
 api.interceptors.response.use(
   (response) => response,
-  (error) => {
+  async (error) => {
     if (error instanceof AxiosError) {
       toast.info(error.response?.data);
 
@@ -38,9 +45,23 @@ api.interceptors.response.use(
       }
 
       if (error.response?.status === 401) {
-        toast.error("Acesso não autorizado");
-        destroyCookie(null, sessionToken);
-        return (window.location.href = "/auth");
+        const originalRequest = error.config;
+
+        const newAccessToken = await getNewAccessToken();
+
+        if (!newAccessToken) {
+          destroyCookie(null, sessionToken);
+          toast.error("Usuário não autorizado.");
+          setTimeout(() => {
+            window.location.href = "/auth";
+          }, 2000);
+        }
+
+        if (originalRequest) {
+          originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
+
+          return axios.request(originalRequest);
+        }
       }
     }
   },

@@ -8,6 +8,7 @@ export * from "./TSupplier";
 export * from "./TProduct";
 export * from "./TOrderStatus";
 export * from "./TCreateSession";
+export * from "./TRootComponent";
 
 // RESPONSES
 export * from "./responses/TCompanyResponse";
