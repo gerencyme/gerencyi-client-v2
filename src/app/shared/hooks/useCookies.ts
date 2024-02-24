@@ -1,5 +1,5 @@
-import { TCreateSession } from "@shared/types";
-import { setCookie, destroyCookie } from "nookies";
+import { TCreateSession } from '@shared/types'
+import { setCookie, destroyCookie } from 'nookies'
 
 /**
  * @returns {
@@ -9,21 +9,21 @@ import { setCookie, destroyCookie } from "nookies";
  */
 
 export const useCookie = () => {
-  const maxAge = process.env.NEXT_PUBLIC_MAX_AGE_IN_SECONDS;
+  const maxAge = process.env.NEXT_PUBLIC_MAX_AGE_IN_SECONDS
 
   const createSession = ({ cookieName, value }: TCreateSession) =>
     setCookie(null, cookieName, value, {
-      maxAge: maxAge,
-      path: "/",
-    });
+      maxAge,
+      path: '/',
+    })
 
   const deleteCookie = (cookieName: string) =>
     destroyCookie(null, cookieName, {
       cookieName,
-    });
+    })
 
   return {
     createSession,
     deleteCookie,
-  };
-};
+  }
+}

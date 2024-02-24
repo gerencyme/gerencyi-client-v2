@@ -1,4 +1,4 @@
 export type TAuthRequest = {
-  CNPJ: string;
-  password: string;
-};
+  CNPJ: string
+  password: string
+}

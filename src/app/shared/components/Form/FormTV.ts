@@ -1,5 +1,5 @@
-import { tv } from "tailwind-variants";
+import { tv } from 'tailwind-variants'
 
 export const formTV = tv({
-  base: "flex flex-col gap-6",
-});
+  base: 'flex flex-col gap-6',
+})

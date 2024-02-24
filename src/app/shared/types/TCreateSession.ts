@@ -1,4 +1,4 @@
 export interface TCreateSession {
-  cookieName: string;
-  value: string;
+  cookieName: string
+  value: string
 }

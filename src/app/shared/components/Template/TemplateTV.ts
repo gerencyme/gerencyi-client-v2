@@ -1,35 +1,35 @@
-import { tv } from "tailwind-variants";
+import { tv } from 'tailwind-variants'
 
 export const templateTV = tv({
-  base: "relative rounded-2xl p-2 md:p-4 h-fit w-fit",
+  base: 'relative rounded-2xl p-2 md:p-4 h-fit w-fit duration-500',
   variants: {
     overflow: {
-      hidden: "overflow-hidden",
-      "scroll-x": "overflow-x-scroll",
-      "scroll-x-hidden": "overflow-x-hidden",
-      "scroll-y": "overflow-y-scroll flex-col",
-      "scroll-y-hidden": "overflow-y-hidden",
+      hidden: 'overflow-hidden',
+      'scroll-x': 'overflow-x-scroll',
+      'scroll-x-hidden': 'overflow-x-hidden',
+      'scroll-y': 'overflow-y-scroll flex-col',
+      'scroll-y-hidden': 'overflow-y-hidden',
     },
     centralized: {
-      full: "items-center justify-center",
+      full: 'items-center justify-center',
     },
     direction: {
-      col: "flex-col",
-      row: "flex-row",
+      col: 'flex-col',
+      row: 'flex-row',
     },
     variant: {
       mirror:
-        "backdrop-blur shadow-mirror border-[0.5px] border-dark-gray-200/50 flex gap-8 bg-blue-mirror",
-      default: "bg-light-template dark:bg-dark-template",
-      "vertical-gradient": "dark:bg-dark-vertical-gradient",
-      "radial-gradient": "dark:bg-dark-gradient-radial",
+        'backdrop-blur shadow-mirror border-[0.5px] border-dark-grey-200/50 flex gap-8 bg-blue-mirror',
+      default: 'bg-light-template dark:bg-dark-template',
+      'vertical-gradient': 'dark:bg-dark-vertical-gradient',
+      'radial-gradient': 'dark:bg-dark-gradient-radial',
     },
     shadow: {
-      base: "shadow-base",
+      base: 'shadow-base',
     },
   },
   defaultVariants: {
-    variant: "default",
-    direction: "col",
+    variant: 'default',
+    direction: 'col',
   },
-});
+})

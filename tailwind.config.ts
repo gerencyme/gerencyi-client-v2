@@ -31,13 +31,15 @@ const config: Config = {
       error: "#E73939",
 
       dark: {
-        background: "#2A2A2A",
-        template: "#383838",
-        primary: "#78772A",
+        background: "#121214",
+        template: "#262626",
+        primary: "#E9BC1D",
 
-        gray: {
+        grey: {
           200: "#D3D3D3",
-          400: "#414341",
+          400: "#707070",
+          500: "#414341",
+          600: "#383838",
         },
       },
 
@@ -59,8 +61,14 @@ const config: Config = {
         appear: "appear 2s linear forwards",
       },
       backgroundImage: {
+        "light-vertical-gradient":
+          "linear-gradient(180deg, #FFFFFF 43.6%, #D7F78C 258.3%)",
         "dark-vertical-gradient":
-          "linear-gradient(179.63deg, #313131 -11.63%, #78772A 296.37%)",
+          "linear-gradient(180deg, rgba(40, 40, 40, 0.5) 28.33%, rgba(211, 211, 211, 0.25) 100%)",
+        "dark-profile-vertical-gradient":
+          "linear-gradient(0deg, rgba(211, 211, 211, 0.25) -66.5%, rgba(40, 40, 40, 0.5) 100%)",
+        "light-profile-vertical-gradient":
+          "linear-gradient(0deg, rgba(215, 247, 140, 0.25) -144.25%, #FFFFFF 39.12%)",
         "montserrat-gradient":
           "linear-gradient(178.19deg, rgba(0, 153, 255, 0.5) -237.49%, #D3D3D3 98.47%, #D3D3D3 98.47%)",
         "home-vertical-gradient":

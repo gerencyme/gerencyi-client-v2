@@ -1,33 +1,33 @@
 // Provedores devem ser adicionados aqui
-"use client";
+'use client'
 
-import { AppThemeProvider } from "@shared/contexts/ThemeContext";
-import { queryClient } from "@shared/services/reactQuery";
-import { ReactNode } from "react";
-import { QueryClientProvider } from "react-query";
+import { AppThemeProvider } from '@shared/contexts/ThemeContext'
+import { queryClient } from '@shared/services/reactQuery'
+import { ReactNode } from 'react'
+import { QueryClientProvider } from 'react-query'
 
 type TProvidersProps = {
-  children: ReactNode;
-};
+  children: ReactNode
+}
 
 export function Providers({ children }: TProvidersProps) {
   const composeProviders =
     (
       ...providers: {
-        ({ children }: TProvidersProps): JSX.Element;
+        ({ children }: TProvidersProps): JSX.Element
       }[]
     ) =>
     (props: { children: ReactNode }) =>
       providers.reduceRight(
         (children, Provider) => <Provider {...props}>{children}</Provider>,
         props.children,
-      );
+      )
 
-  const AllProviders = composeProviders(AppThemeProvider);
+  const AllProviders = composeProviders(AppThemeProvider)
 
   return (
     <QueryClientProvider client={queryClient}>
       <AllProviders>{children}</AllProviders>
     </QueryClientProvider>
-  );
+  )
 }

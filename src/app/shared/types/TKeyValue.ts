@@ -1,3 +1,3 @@
 export type TKeyValue = {
-  [key: string]: string | number | boolean | null;
-};
+  [key: string]: string | number | boolean | null
+}

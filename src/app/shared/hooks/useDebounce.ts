@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef } from 'react'
 
 /**
  * @function fn callback function
@@ -7,15 +7,15 @@ import { useRef } from "react";
  */
 
 export const useDebounce = () => {
-  const timeOutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const timeOutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const debounced = (fn: () => void, delay: number) => {
-    if (timeOutRef.current) clearTimeout(timeOutRef.current);
+    if (timeOutRef.current) clearTimeout(timeOutRef.current)
 
     timeOutRef.current = setTimeout(() => {
-      fn();
-    }, delay);
-  };
+      fn()
+    }, delay)
+  }
 
-  return { debounced };
-};
+  return { debounced }
+}

@@ -1,5 +1,5 @@
-import { Text, TextProps } from "@shared/components/Text";
+import { Text, TextProps } from '@shared/components/Text'
 
 export function ButtonLabel({ text, ...props }: TextProps) {
-  return <Text text={text} {...props} />;
+  return <Text text={text} {...props} />
 }

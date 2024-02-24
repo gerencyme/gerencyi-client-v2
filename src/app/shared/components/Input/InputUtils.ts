@@ -7,9 +7,9 @@ export const getErrors = (obj: Record<any, any>, path: string) => {
       .reduce(
         (res, key) => (res !== null && res !== undefined ? res[key] : res),
         obj,
-      );
+      )
 
-  const result = travel(/[,[\]]+?/) || travel(/[,[\].]+?/);
+  const result = travel(/[,[\]]+?/) || travel(/[,[\].]+?/)
 
-  return result;
-};
+  return result
+}

@@ -1,11 +1,11 @@
-import { ReactNode } from "react";
-import { VariantProps } from "tailwind-variants";
-import { titleTv } from "./TitleTV";
+import { ReactNode } from 'react'
+import { VariantProps } from 'tailwind-variants'
+import { titleTv } from './TitleTV'
 
 export interface TitleProps extends VariantProps<typeof titleTv> {
-  title: ReactNode;
-  className?: string;
-  as?: "h2" | "h3" | "h4" | "h5" | "h6";
+  title: ReactNode
+  className?: string
+  as?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 }
 
 export function Title({
@@ -19,7 +19,7 @@ export function Title({
   align,
   ...props
 }: TitleProps) {
-  const Comp = as ?? "h1";
+  const Comp = as ?? 'h1'
   return (
     <Comp
       {...props}
@@ -34,5 +34,5 @@ export function Title({
     >
       {title}
     </Comp>
-  );
+  )
 }

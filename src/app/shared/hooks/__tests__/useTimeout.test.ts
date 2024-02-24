@@ -1,22 +1,22 @@
-import { useTimeout } from "@shared/hooks/useTimeout";
-import { renderHook, waitFor } from "@testing-library/react";
-import { act } from "react-dom/test-utils";
+import { useTimeout } from '@shared/hooks/useTimeout'
+import { renderHook, waitFor } from '@testing-library/react'
+import { act } from 'react-dom/test-utils'
 
-jest.useFakeTimers();
+jest.useFakeTimers()
 
-describe("useTimeout", () => {
-  it("should able to update a situation if it is valid after a selected delay", async () => {
-    let situation = true;
-    const updateSituation = () => (situation = false);
-    const delay = 1000;
-    renderHook(() => useTimeout(situation, updateSituation, delay));
+describe('useTimeout', () => {
+  it('should able to update a situation if it is valid after a selected delay', async () => {
+    let situation = true
+    const updateSituation = () => (situation = false)
+    const delay = 1000
+    renderHook(() => useTimeout(situation, updateSituation, delay))
 
     act(() => {
-      jest.advanceTimersByTime(delay);
-    });
+      jest.advanceTimersByTime(delay)
+    })
 
     await waitFor(() => {
-      expect(situation).toEqual(false);
-    });
-  });
-});
+      expect(situation).toEqual(false)
+    })
+  })
+})

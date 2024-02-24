@@ -1,20 +1,20 @@
-import { TProductCard } from "@shared/types";
-import { randomUUID } from "crypto";
+import { TProductCard } from '@shared/types'
+import { randomUUID } from 'crypto'
 
 export const productMock: TProductCard[] = [
   {
     companyId: randomUUID(),
     isLiked: true,
     isModalOpen: false,
-    orderColorIdentity: "$ffffff",
+    orderColorIdentity: '$ffffff',
     orderDate: new Date(),
     orderId: String(randomUUID),
-    orderStatus: "done",
+    orderStatus: 'done',
     partnerCompaniesInthisOrder: [],
     product: {
       lastTotalPrice: 10,
-      productBrand: "Product brand",
-      productName: "Product name",
+      productBrand: 'Product brand',
+      productName: 'Product name',
       quantity: 1,
       totalPrice: 10,
       unitPrice: 10,
@@ -24,15 +24,15 @@ export const productMock: TProductCard[] = [
     companyId: randomUUID(),
     isLiked: true,
     isModalOpen: false,
-    orderColorIdentity: "$000",
+    orderColorIdentity: '$000',
     orderDate: new Date(),
     orderId: String(randomUUID),
-    orderStatus: "canceled",
+    orderStatus: 'canceled',
     partnerCompaniesInthisOrder: [],
     product: {
       lastTotalPrice: 20,
-      productBrand: "Product brand 01",
-      productName: "Product name 01",
+      productBrand: 'Product brand 01',
+      productName: 'Product name 01',
       quantity: 2,
       totalPrice: 10,
       unitPrice: 10,
@@ -42,18 +42,18 @@ export const productMock: TProductCard[] = [
     companyId: randomUUID(),
     isLiked: true,
     isModalOpen: false,
-    orderColorIdentity: "$000",
-    orderDate: "2024-06-09T01:25:36.215Z",
+    orderColorIdentity: '$000',
+    orderDate: '2024-06-09T01:25:36.215Z',
     orderId: String(randomUUID),
-    orderStatus: "underAnalysis",
+    orderStatus: 'underAnalysis',
     partnerCompaniesInthisOrder: [],
     product: {
       lastTotalPrice: 20,
-      productBrand: "Product brand 01",
-      productName: "Product name 01",
+      productBrand: 'Product brand 01',
+      productName: 'Product name 01',
       quantity: 2,
       totalPrice: 10,
       unitPrice: 10,
     },
   },
-];
+]

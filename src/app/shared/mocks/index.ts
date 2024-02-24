@@ -1,1 +1,1 @@
-export * from "./productMock";
+export * from './productMock'

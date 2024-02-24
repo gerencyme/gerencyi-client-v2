@@ -1,17 +1,17 @@
-"use client";
+'use client'
 
-import { inputFieldTV } from "@shared/components/Input/InputTV";
-import { InputHTMLAttributes } from "react";
-import { VariantProps } from "tailwind-variants";
-import { useFormContext } from "react-hook-form";
+import { inputFieldTV } from '@shared/components/Input/InputTV'
+import { InputHTMLAttributes } from 'react'
+import { VariantProps } from 'tailwind-variants'
+import { useFormContext } from 'react-hook-form'
 
 type TInputFieldProps = {
-  name: string;
+  name: string
 } & VariantProps<typeof inputFieldTV> &
-  InputHTMLAttributes<HTMLInputElement>;
+  InputHTMLAttributes<HTMLInputElement>
 
 export function InputField({ name, variant, ...props }: TInputFieldProps) {
-  const { register } = useFormContext();
+  const { register } = useFormContext()
 
   return (
     <input
@@ -20,5 +20,5 @@ export function InputField({ name, variant, ...props }: TInputFieldProps) {
       id={name}
       className={inputFieldTV({ variant })}
     />
-  );
+  )
 }

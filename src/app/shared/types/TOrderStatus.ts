@@ -1,1 +1,1 @@
-export type TOrderStatus = "done" | "canceled" | "underAnalysis";
+export type TOrderStatus = 'done' | 'canceled' | 'underAnalysis'

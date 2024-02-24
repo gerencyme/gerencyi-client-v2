@@ -1,5 +1,5 @@
-import { AuthCard } from "@features/AuthCard";
-import { AnimatedLogo } from "@features/AnimatedLogo";
+import { AuthCard } from '@features/AuthCard'
+import { AnimatedLogo } from '@features/AnimatedLogo'
 
 export default function Home() {
   return (
@@ -14,5 +14,5 @@ export default function Home() {
         </AuthCard.root>
       </div>
     </>
-  );
+  )
 }

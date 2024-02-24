@@ -1,4 +1,4 @@
-const { name } = require('./package.json')
+const { name, baseUrl } = require('./package.json')
 const { pathsToModuleNameMapper } = require('ts-jest');
 const { compilerOptions } = require('./tsconfig.json');
 const nextJest = require('next/jest')
@@ -14,13 +14,16 @@ const config = {
   preset: 'ts-jest',
   testEnvironment: 'jest-environment-jsdom',
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
-  testPathIgnorePatterns: ['/node_modules/', '/.next/'],
+  testPathIgnorePatterns: [
+    '/node_modules/',
+    '/.next/',
+  ],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
     prefix: '<rootDir>/',
   }),
   globals: {
     'ts-jest': {
-      tsconfig: 'path/to/your/tsconfig.json',
+      tsconfig: './package.json',
     },
   },
 }

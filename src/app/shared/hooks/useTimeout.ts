@@ -1,6 +1,6 @@
-"use client";
+'use client'
 
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect } from 'react'
 
 /**
  * @param situation boolean
@@ -17,16 +17,16 @@ export const useTimeout = (
     if (situation) {
       const timeRef = () =>
         setTimeout(() => {
-          updateSituation();
-        }, time);
+          updateSituation()
+        }, time)
 
-      timeRef();
+      timeRef()
 
-      return clearTimeout(timeRef());
+      return clearTimeout(timeRef())
     }
-  }, [situation, time, updateSituation]);
+  }, [situation, time, updateSituation])
 
   useEffect(() => {
-    resetSituation();
-  }, [resetSituation]);
-};
+    resetSituation()
+  }, [resetSituation])
+}

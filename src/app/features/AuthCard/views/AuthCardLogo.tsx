@@ -1,5 +1,5 @@
-import Image from "next/image";
-import CardLogo from "@assets/svg/card-logo.svg";
+import Image from 'next/image'
+import CardLogo from '@assets/svg/card-logo.svg'
 
 export function AuthCardLogo() {
   return (
@@ -8,5 +8,5 @@ export function AuthCardLogo() {
       className="pointer-events-none"
       src={CardLogo}
     />
-  );
+  )
 }

@@ -1,5 +1,5 @@
-import Logo from "@assets/svg/logo.svg";
-import Image from "next/image";
+import Logo from '@assets/svg/logo.svg'
+import Image from 'next/image'
 
 export function AnimatedLogoG() {
   return (
@@ -10,5 +10,5 @@ export function AnimatedLogoG() {
         src={Logo}
       />
     </div>
-  );
+  )
 }

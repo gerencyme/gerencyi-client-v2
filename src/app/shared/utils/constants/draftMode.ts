@@ -1,1 +1,1 @@
-export const draftMode = "draftMode";
+export const draftMode = 'draftMode'

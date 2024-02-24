@@ -1,11 +1,11 @@
-import { useMemo, useState } from "react";
-import { formateDate } from "@shared/utils/dates";
-import { TOrderStatus, TProductCard } from "@shared/types";
+import { useMemo, useState } from 'react'
+import { formateDate } from '@shared/utils/dates'
+import { TOrderStatus, TProductCard } from '@shared/types'
 import {
   filterMonthsOptions,
   filterStatusOptions,
   portugueseStatus,
-} from "@shared/utils/constants/generalFiltersOptions";
+} from '@shared/utils/constants/generalFiltersOptions'
 
 /**
  * @param data should contain product to be filtered and can be used with a searchedData from useSearch
@@ -13,33 +13,33 @@ import {
  */
 
 export const useFilters = (data: TProductCard[]) => {
-  const currentMonth = new Date().getMonth();
-  const defaultMonthLabel = filterMonthsOptions[currentMonth].label;
+  const currentMonth = new Date().getMonth()
+  const defaultMonthLabel = filterMonthsOptions[currentMonth].label
 
-  const [currentMonthFilter, setCurrentMonth] = useState(defaultMonthLabel);
-  const [selectedStatus, setSelectedStatus] = useState<TOrderStatus | "todos">(
-    "todos",
-  );
+  const [currentMonthFilter, setCurrentMonth] = useState(defaultMonthLabel)
+  const [selectedStatus, setSelectedStatus] = useState<TOrderStatus | 'todos'>(
+    'todos',
+  )
 
   const monthIndex = filterMonthsOptions.findIndex(
     (item) => item.label === currentMonthFilter,
-  );
+  )
 
-  const translatedSelectedStatus = portugueseStatus[selectedStatus];
+  const translatedSelectedStatus = portugueseStatus[selectedStatus]
 
   const filteredData = useMemo(() => {
-    const monthToFilter = monthIndex + 1;
+    const monthToFilter = monthIndex + 1
 
     return data?.filter((item) => {
-      const formattedDate = formateDate(item.orderDate);
-      const dateMonth = parseInt(formattedDate?.split("/")[1], 10);
+      const formattedDate = formateDate(item.orderDate)
+      const dateMonth = parseInt(formattedDate?.split('/')[1], 10)
 
       return (
         dateMonth === monthToFilter &&
-        (selectedStatus === "todos" || item.orderStatus === selectedStatus)
-      );
-    });
-  }, [data, monthIndex, selectedStatus]);
+        (selectedStatus === 'todos' || item.orderStatus === selectedStatus)
+      )
+    })
+  }, [data, monthIndex, selectedStatus])
 
   return {
     setCurrentMonth,
@@ -49,5 +49,5 @@ export const useFilters = (data: TProductCard[]) => {
     filteredData,
     filterMonthsOptions,
     filterStatusOptions,
-  };
-};
+  }
+}

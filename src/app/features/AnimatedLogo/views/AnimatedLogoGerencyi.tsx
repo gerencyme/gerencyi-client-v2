@@ -1,10 +1,10 @@
-import { Text } from "@shared/components";
-import Image from "next/image";
+import { Text } from '@shared/components'
+import Image from 'next/image'
 
-import GerencyI from "@assets/svg/gerencyi.svg";
+import GerencyI from '@assets/svg/gerencyi.svg'
 
 interface AnimatedLogoGerencyIProps {
-  slug: string;
+  slug: string
 }
 
 export function AnimatedLogoGerencyI({ slug }: AnimatedLogoGerencyIProps) {
@@ -20,5 +20,5 @@ export function AnimatedLogoGerencyI({ slug }: AnimatedLogoGerencyIProps) {
         weight="normal"
       />
     </div>
-  );
+  )
 }

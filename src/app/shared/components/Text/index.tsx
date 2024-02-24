@@ -1,26 +1,26 @@
-import { ReactNode } from "react";
-import { VariantProps } from "tailwind-variants";
-import { textTv } from "./TextTV";
+import { ReactNode } from 'react'
+import { VariantProps } from 'tailwind-variants'
+import { textTv } from './TextTV'
 
 export interface TextProps extends VariantProps<typeof textTv> {
-  text: ReactNode;
-  className?: string;
-  as?: "span";
-  onClick?: () => void;
+  text: ReactNode
+  className?: string
+  as?: 'span'
+  onClick?: () => void
 }
 
 export function Text({
   as,
-  text = "",
-  size = "sm",
+  text = '',
+  size = 'sm',
   weight,
   color,
-  className = "",
+  className = '',
   fontFamily,
   align,
   ...props
 }: TextProps) {
-  const Comp = as ?? "p";
+  const Comp = as ?? 'p'
 
   return (
     <Comp
@@ -29,5 +29,5 @@ export function Text({
     >
       {text}
     </Comp>
-  );
+  )
 }

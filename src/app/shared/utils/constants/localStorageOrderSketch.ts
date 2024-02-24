@@ -1,1 +1,1 @@
-export const localStorageOrderSketch = "productSketch";
+export const localStorageOrderSketch = 'productSketch'

@@ -1,8 +1,8 @@
-import { ToastContainer, ToastOptions } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, ToastOptions } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 interface ToastProps {
-  options?: ToastOptions;
+  options?: ToastOptions
 }
 
 export function Toast({ options }: ToastProps) {
@@ -19,5 +19,5 @@ export function Toast({ options }: ToastProps) {
       draggable
       pauseOnHover
     />
-  );
+  )
 }

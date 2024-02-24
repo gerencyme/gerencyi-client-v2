@@ -1,25 +1,25 @@
-import { useLocalStorage } from "@shared/hooks/useLocalStorage";
+import { useLocalStorage } from '@shared/hooks/useLocalStorage'
 
-describe("useLocalStorage", () => {
+describe('useLocalStorage', () => {
   beforeEach(() => {
-    window.localStorage.clear();
-  });
+    window.localStorage.clear()
+  })
 
-  const { getLocalStorage, setLocalStorage, STORAGE_KEY } = useLocalStorage();
+  const { getLocalStorage, setLocalStorage, STORAGE_KEY } = useLocalStorage()
 
-  it("should return item from localStorage", () => {
-    window.localStorage.setItem(`${STORAGE_KEY}key`, JSON.stringify("John"));
+  it('should return item from localStorage', () => {
+    window.localStorage.setItem(`${STORAGE_KEY}key`, JSON.stringify('John'))
 
-    const sut = getLocalStorage("key");
+    const sut = getLocalStorage('key')
 
-    expect(sut).toStrictEqual("John");
-  });
+    expect(sut).toStrictEqual('John')
+  })
 
-  it("should add item at localStorage", () => {
-    setLocalStorage("key", "Doe");
+  it('should add item at localStorage', () => {
+    setLocalStorage('key', 'Doe')
 
-    const sut = window.localStorage.getItem(`${STORAGE_KEY}key`);
+    const sut = window.localStorage.getItem(`${STORAGE_KEY}key`)
 
-    expect(sut).toStrictEqual(JSON.stringify("Doe"));
-  });
-});
+    expect(sut).toStrictEqual(JSON.stringify('Doe'))
+  })
+})

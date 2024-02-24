@@ -2,36 +2,36 @@
  * use /routePathName/:path* para validar todas a rotas a partir da routePathName
  */
 
-import { TSessionCustomer } from "@shared/types";
-import { APP_ROUTES } from "@shared/utils/constants/app-routes";
-import { companySession } from "@shared/utils/constants/companySession";
-import { NextRequest, NextResponse } from "next/server";
+import { TSessionCustomer } from '@shared/types'
+import { APP_ROUTES } from '@shared/utils/constants/app-routes'
+import { companySession } from '@shared/utils/constants/companySession'
+import { NextRequest, NextResponse } from 'next/server'
 
 export default async function middlwware(nextRequest: NextRequest) {
   const stringfyiedSessionCustomer =
-    nextRequest.cookies.get(companySession)?.value;
+    nextRequest.cookies.get(companySession)?.value
   const sessionCustomer: TSessionCustomer =
-    stringfyiedSessionCustomer && JSON.parse(stringfyiedSessionCustomer);
-  const token = sessionCustomer?.refreshToken;
+    stringfyiedSessionCustomer && JSON.parse(stringfyiedSessionCustomer)
+  const token = sessionCustomer?.refreshToken
 
-  const signURL = new URL(APP_ROUTES.public.home.name, nextRequest.url);
+  const signURL = new URL(APP_ROUTES.public.home.name, nextRequest.url)
 
   if (!token) {
     if (nextRequest.nextUrl.pathname === APP_ROUTES.public.home.name) {
-      return NextResponse.next();
+      return NextResponse.next()
     }
-    return NextResponse.redirect(signURL);
+    return NextResponse.redirect(signURL)
   }
 
   if (nextRequest.nextUrl.pathname === APP_ROUTES.public.home.name) {
     const dashboardUrl = new URL(
       APP_ROUTES.private.dashboard.name,
       nextRequest.url,
-    );
-    return NextResponse.redirect(dashboardUrl);
+    )
+    return NextResponse.redirect(dashboardUrl)
   }
 }
 
 export const config = {
-  matcher: ["/", "/dashboard"],
-};
+  matcher: ['/', '/dashboard'],
+}
