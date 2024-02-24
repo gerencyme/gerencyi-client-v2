@@ -14,16 +14,16 @@ export default async function middlwware(nextRequest: NextRequest) {
     stringfyiedSessionCustomer && JSON.parse(stringfyiedSessionCustomer)
   const token = sessionCustomer?.refreshToken
 
-  const signURL = new URL(APP_ROUTES.public.auth.name, nextRequest.url)
+  const signURL = new URL(APP_ROUTES.public.home.name, nextRequest.url)
 
   if (!token) {
-    if (nextRequest.nextUrl.pathname === APP_ROUTES.public.auth.name) {
+    if (nextRequest.nextUrl.pathname === APP_ROUTES.public.home.name) {
       return NextResponse.next()
     }
     return NextResponse.redirect(signURL)
   }
 
-  if (nextRequest.nextUrl.pathname === APP_ROUTES.public.auth.name) {
+  if (nextRequest.nextUrl.pathname === APP_ROUTES.public.home.name) {
     const dashboardUrl = new URL(
       APP_ROUTES.private.dashboard.name,
       nextRequest.url,
@@ -33,13 +33,5 @@ export default async function middlwware(nextRequest: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    '/auth',
-    '/register',
-    '/my-account',
-    '/my-data',
-    '/last-months',
-    '/dashboard',
-    '/new-order',
-  ],
+  matcher: ['/', '/my-data', '/last-months', '/dashboard', '/new-order'],
 }

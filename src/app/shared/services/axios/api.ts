@@ -69,4 +69,4 @@ api.interceptors.response.use(
   },
 )
 
-export const FAQApi: AxiosInstance = axios.create({})
+export const HomeDataApi: AxiosInstance = axios.create({})

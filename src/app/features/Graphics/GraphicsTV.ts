@@ -5,7 +5,7 @@ export const actionWrapperTV = tv({
   variants: {
     state: {
       isActive:
-        'border-[0.5px] border-light-primary rounded-full dark:border-dark-primary',
+        'border-[0.5px] border-light-primary rounded-full dark:border-dark-primary animate-slide-in',
       notActive: 'border-0 animate-slide-out',
     },
   },

@@ -29,25 +29,11 @@ export const comparationGraphicCategories = [
 export const ExpensiveGraphicSeries = (
   theme: TTheme,
   companyName: string,
+  data: ApexNonAxisChartSeries,
 ): ApexAxisChartSeries | ApexNonAxisChartSeries => [
   {
     name: capitalizeName(companyName),
-    data: [31, 40, 28, 51, 42, 109, 100, 85, 77, 94, 112, 154],
+    data,
     color: theme === 'dark' ? '#E9BC1D' : '#D7F78C',
   },
-]
-
-export const ExpensiveGraphicCategories = [
-  'Jan',
-  'Fev',
-  'Mar',
-  'Abr',
-  'Mai',
-  'Jun',
-  'Jul',
-  'Ago',
-  'Set',
-  'Out',
-  'Nov',
-  'Dez',
 ]

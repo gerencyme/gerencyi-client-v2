@@ -6,7 +6,7 @@ import Chart from 'react-apexcharts'
 
 interface GraphicContentProps {
   yFormatter: ApexTooltipY
-  categories: string[]
+  categories: string[] | number[]
   type: 'area' | 'bar'
   series: ApexAxisChartSeries | ApexNonAxisChartSeries
   theme: TTheme

@@ -64,10 +64,15 @@ const config: Config = {
           from: { transform: 'translateX(-100%)' },
           to: { transform: 'translateX(0)' },
         },
+        'slide-in-from-right': {
+          from: { transform: 'translateX(100%)' },
+          to: { transform: 'translateX(0)' },
+        },
       },
       animation: {
         appear: 'appear 2s linear forwards',
-        'slide-out': 'slide-in-from-left 0.3s linear',
+        'slide-out': 'slide-in-from-left 0.3s ease-out',
+        'slide-in': 'slide-in-from-right 0.3s ease-in',
       },
       backgroundImage: {
         'light-vertical-gradient':

@@ -1,44 +1,24 @@
 'use client'
 
 import { actionLabelTV, actionWrapperTV } from '@features/Graphics/GraphicsTV'
+import { useGraphicsController } from '@features/Graphics/controller'
 import { Template, Text } from '@shared/components'
-import { useState } from 'react'
 import { VariantProps } from 'tailwind-variants'
 
-type TGraphicsActions = VariantProps<typeof actionWrapperTV>
+type TGraphicsActions = {
+  getMonthExpenses: () => void
+  getYearExpenses: () => void
+} & VariantProps<typeof actionWrapperTV>
 
-export function GraphicsActions({ state }: TGraphicsActions) {
-  const [activeId, setActiveId] = useState(0)
-
-  const actions = [
-    {
-      id: 0,
-      label: 'Mês',
-      // action: getMonthExpenses,
-      action: (id: number) => {
-        console.log('peguei os dados do Mês')
-        setActiveId(id)
-      },
-    },
-    {
-      id: 1,
-      label: 'Ano',
-      // action: getYearExpenses,
-      action: (id: number) => {
-        console.log('peguei os dados do Ano')
-        setActiveId(id)
-      },
-    },
-  ]
-
-  const sortedActions =
-    activeId !== null
-      ? [
-          actions[activeId],
-          ...actions.slice(0, activeId),
-          ...actions.slice(activeId + 1),
-        ]
-      : actions
+export function GraphicsActions({
+  state,
+  getMonthExpenses,
+  getYearExpenses,
+}: TGraphicsActions) {
+  const { sortedActions, activeId } = useGraphicsController(
+    getMonthExpenses,
+    getYearExpenses,
+  )
 
   return (
     <Template
@@ -64,7 +44,7 @@ export function GraphicsActions({ state }: TGraphicsActions) {
           >
             <Text
               text={action.label}
-              size="sm"
+              size="xs"
               weight="bold"
               className={actionLabelTV({ state: activeState })}
             />

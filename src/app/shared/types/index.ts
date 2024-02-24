@@ -14,6 +14,9 @@ export * from './TApexchartsOptions'
 
 // RESPONSES
 export * from './responses/TCompanyResponse'
+export * from './responses/TYearExpensesResponse'
+export * from './responses/TMonthsExpensesResponse'
+
 // REQUESTS
 export * from './requests/TCompanieRequest'
 export * from './requests/TAuthRequest'

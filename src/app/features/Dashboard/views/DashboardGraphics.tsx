@@ -6,7 +6,14 @@ import { Graphics } from '@features/Graphics'
 import { Template } from '@shared/components'
 
 export function DashboardGraphics() {
-  const { name, theme, yFormatter } = useDashboardController()
+  const {
+    name,
+    theme,
+    yFormatter,
+    expenseData,
+    getMonthExpenses,
+    getYearExpenses,
+  } = useDashboardController()
 
   return (
     <Template
@@ -29,14 +36,23 @@ export function DashboardGraphics() {
       <Graphics.root>
         <Graphics.header
           text="Despesas Mensal"
-          actions={<Graphics.actions />}
+          actions={
+            <Graphics.actions
+              getYearExpenses={getYearExpenses}
+              getMonthExpenses={getMonthExpenses}
+            />
+          }
         />
         <Graphics.content
           yFormatter={yFormatter}
           type="area"
           theme={theme}
-          categories={utils.ExpensiveGraphicCategories}
-          series={utils.ExpensiveGraphicSeries(theme, name)}
+          categories={expenseData?.date ?? []}
+          series={utils.ExpensiveGraphicSeries(
+            theme,
+            name,
+            expenseData?.expenseData ?? [],
+          )}
         />
       </Graphics.root>
     </Template>
