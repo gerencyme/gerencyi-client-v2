@@ -27,6 +27,8 @@ export const textTv = tv({
       black: "text-black",
       white: "text-white",
       success: "text-green",
+      gray: "text-dark-gray-200/75",
+      error: "text-error",
     },
     align: {
       center: "text-center",

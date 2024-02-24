@@ -3,7 +3,7 @@ import { formateDate } from "@shared/utils/dates";
 const addLeadingZero = (value: number) => (value < 10 ? `0${value}` : value);
 
 describe("formateDate", () => {
-  const day = new Date().getUTCDate();
+  const day = new Date().getDate();
   const month = new Date().getUTCMonth() + 1;
 
   const formattedDay = addLeadingZero(day);

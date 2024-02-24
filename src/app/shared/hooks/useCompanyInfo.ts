@@ -1,13 +1,11 @@
-import { useLocalStorage } from "@shared/hooks/useLocalStorage";
 import { TCompanieRequest } from "@shared/types";
-import { sessionUserLocalStorage } from "@shared/utils/constants/userLocalStorage";
+import { parseCookies } from "nookies";
 
 export const useCompanyInfo = () => {
-  const { getLocalStorage } = useLocalStorage();
-
-  const session = sessionUserLocalStorage;
-
-  const company: TCompanieRequest = getLocalStorage(session);
+  const cookies = parseCookies();
+  const stringfyiedCompanySession = cookies._Customer;
+  const company: TCompanieRequest =
+    stringfyiedCompanySession && JSON.parse(stringfyiedCompanySession);
 
   return {
     company,

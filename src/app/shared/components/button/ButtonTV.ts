@@ -5,7 +5,7 @@ export const buttonRootTV = tv({
   variants: {
     variant: {
       mirror:
-        "ring-1 ring-dark-gray-200/50 bg-dark-gray-200/10 h-6 rounded-full",
+        "ring-1 ring-dark-gray-200/50 bg-dark-gray-200/10 h-6 rounded-full border-[0.5px] border-dark-gray-200/50 items-center justify-center",
       primary: "bg-light-primary dark:bg-dark-primary dark:text-invert",
       secondary:
         "bg-transparent ring-1 bg-ring-primary dark:ring-dark-primary dark:text-invert",

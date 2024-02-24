@@ -10,10 +10,14 @@ export const getNewAccessToken = async () => {
 
   const endpoint = "RefreshToken";
 
-  const { data } = await api.post<TSessionCustomer>(endpoint, {
-    refreshToken: sessionCustomer.refreshToken,
-    accessToken: sessionCustomer.accessToken,
+  const res = await api.post<TSessionCustomer>(endpoint, {
+    refreshToken: sessionCustomer?.refreshToken,
+    accessToken: sessionCustomer?.accessToken,
   });
 
-  return data.accessToken;
+  if (res.data) {
+    return res.data.accessToken;
+  }
+
+  return null;
 };

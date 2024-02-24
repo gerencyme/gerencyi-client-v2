@@ -1,17 +1,18 @@
-import Image from "next/image";
-import { Parallax } from "@shared/components/Parallax";
+import { AuthCard } from "@features/AuthCard";
+import { AnimatedLogo } from "@features/AnimatedLogo";
 
 export default function Home() {
   return (
-    <Parallax>
-      <Image
-        className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] duration-300 hover:invert"
-        src="/next.svg"
-        alt="Next.js Logo"
-        width={180}
-        height={37}
-        priority
-      />
-    </Parallax>
+    <>
+      <AnimatedLogo.g />
+      <AnimatedLogo.title slug="Conectando Empresas, Maximizando Economias: Sua Solução Centralizada para Pedidos, Preços e Eficiência." />
+      <div className="flex gap-2 w-fit m-auto py-5 md:py-11">
+        <AuthCard.root>
+          <AuthCard.label text="Entre na rede da GerencyI" />
+          <AuthCard.logo />
+          <AuthCard.form.auth />
+        </AuthCard.root>
+      </div>
+    </>
   );
 }

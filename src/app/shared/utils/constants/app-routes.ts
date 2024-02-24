@@ -26,17 +26,5 @@ export const APP_ROUTES = {
       name: "/",
       label: "Início",
     },
-    auth: {
-      name: "/auth",
-      label: "Entrar",
-    },
-    register: {
-      name: "/register",
-      label: "Registre-se",
-    },
-    products: {
-      name: "/products",
-      label: "Produtos",
-    },
   },
 };

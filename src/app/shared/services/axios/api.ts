@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { destroyCookie } from "nookies";
 import { getNewAccessToken } from "@shared/services/axios/getNewAccessToken";
 import { TSessionCustomer } from "@shared/types";
+import { APP_ROUTES } from "@shared/utils/constants/app-routes";
 import { sessionToken } from "@shared/utils/constants/cookies";
 
 const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
@@ -25,9 +26,10 @@ api.interceptors.request.use((config) => {
   if (String(authorization).includes("Bearer ")) {
     String(authorization).replace("Bearer ", "");
   }
+
   if (sessionCustomer) {
     config.headers.Authorization = `Bearer ${authorization}`;
-    config.headers.RefresToken = sessionCustomer?.refreshToken;
+    config.headers.RefresToken = sessionCustomer.refreshToken;
   }
 
   return config;
@@ -53,7 +55,7 @@ api.interceptors.response.use(
           destroyCookie(null, sessionToken);
           toast.error("Usuário não autorizado.");
           setTimeout(() => {
-            window.location.href = "/auth";
+            window.location.href = APP_ROUTES.public.home.name;
           }, 2000);
         }
 

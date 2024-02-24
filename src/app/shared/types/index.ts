@@ -9,8 +9,10 @@ export * from "./TProduct";
 export * from "./TOrderStatus";
 export * from "./TCreateSession";
 export * from "./TRootComponent";
+export * from "./TTheme";
 
 // RESPONSES
 export * from "./responses/TCompanyResponse";
 // REQUESTS
 export * from "./requests/TCompanieRequest";
+export * from "./requests/TAuthRequest";

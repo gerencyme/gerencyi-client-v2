@@ -1,3 +1,5 @@
+"use client";
+
 import { inputFieldTV } from "@shared/components/Input/InputTV";
 import { InputHTMLAttributes } from "react";
 import { VariantProps } from "tailwind-variants";

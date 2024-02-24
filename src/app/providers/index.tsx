@@ -1,6 +1,7 @@
 // Provedores devem ser adicionados aqui
 "use client";
 
+import { AppThemeProvider } from "@shared/contexts/ThemeContext";
 import { queryClient } from "@shared/services/reactQuery";
 import { ReactNode } from "react";
 import { QueryClientProvider } from "react-query";
@@ -22,7 +23,7 @@ export function Providers({ children }: TProvidersProps) {
         props.children,
       );
 
-  const AllProviders = composeProviders();
+  const AllProviders = composeProviders(AppThemeProvider);
 
   return (
     <QueryClientProvider client={queryClient}>

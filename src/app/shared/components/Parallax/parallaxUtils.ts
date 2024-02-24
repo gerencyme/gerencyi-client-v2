@@ -13,8 +13,8 @@ export const handleMouseMove = (
 };
 
 export const calculateTransform = (mousePosition: IPosition) => {
-  const x = (mousePosition.x / window.innerWidth) * 5;
-  const y = (mousePosition.y / window.innerHeight) * 10;
+  const x = (mousePosition.x / window.innerWidth) * 2;
+  const y = (mousePosition.y / window.innerHeight) * 2;
 
   return `translate(${x}%, ${y}%)`;
 };

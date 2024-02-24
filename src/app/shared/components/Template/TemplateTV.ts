@@ -10,12 +10,16 @@ export const templateTV = tv({
       "scroll-y": "overflow-y-scroll flex-col",
       "scroll-y-hidden": "overflow-y-hidden",
     },
+    centralized: {
+      full: "items-center justify-center",
+    },
     direction: {
       col: "flex-col",
       row: "flex-row",
     },
     variant: {
-      mirror: "",
+      mirror:
+        "backdrop-blur shadow-mirror border-[0.5px] border-dark-gray-200/50 flex gap-8 bg-blue-mirror",
       default: "bg-light-template dark:bg-dark-template",
       "vertical-gradient": "dark:bg-dark-vertical-gradient",
       "radial-gradient": "dark:bg-dark-gradient-radial",
