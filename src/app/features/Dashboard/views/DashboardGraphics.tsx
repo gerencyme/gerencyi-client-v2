@@ -1,6 +1,6 @@
 'use client'
 
-import { useDashboardController } from '@features/Dashboard/Controller'
+import { useDashboardController } from '@features/Dashboard/controller'
 import * as utils from '@features/Dashboard/DashBoardUtils'
 import { Graphics } from '@features/Graphics'
 import { Template } from '@shared/components'

@@ -37,6 +37,12 @@
       ],
       "@hooks/*": [
         "./src/app/shared/hooks/*"
+      ],
+      "@HomeDataApi/*": [
+        "./src/app/HomeDataApi/*"
+      ],
+      "@mocks/*": [
+        "./src/app/mocks/*"
       ]
     },
     "forceConsistentCasingInFileNames": true

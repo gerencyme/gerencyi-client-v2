@@ -35,6 +35,7 @@ export function GraphicsActions({
 
         return (
           <button
+            data-testid={action.label}
             className={actionWrapperTV({ state: activeState })}
             onClick={() => {
               action.action(action.id)
