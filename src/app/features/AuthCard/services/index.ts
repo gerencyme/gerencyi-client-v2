@@ -6,5 +6,5 @@ export const auth = async (body: TAuthRequest) => {
 
   const { data } = await api.post<TUserResponse>(endpoitn, body)
 
-  return data
+  return data || {}
 }

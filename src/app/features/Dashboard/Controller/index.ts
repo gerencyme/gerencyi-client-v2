@@ -9,7 +9,7 @@ import { capitalizeName, formatPrice } from '@shared/utils/transformers'
 import { useCallback, useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 
-type TExpenseData = {
+export type TExpenseData = {
   date: string[] | number[]
   expenseData: ApexNonAxisChartSeries
 }

@@ -1,9 +1,9 @@
 import { Graphics } from '@features/Graphics'
-import { act, render, waitFor } from '@testing-library/react'
+import { render, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 describe('GraphicsActions', () => {
-  it('should call getExpense callback', () => {
+  it('should call getExpense callback', async () => {
     const yearButtonLabel = 'Ano'
     const getMonthExpenses = jest.fn()
     const getYearExpenses = jest.fn()
@@ -20,9 +20,9 @@ describe('GraphicsActions', () => {
 
     const yearAction = getByTestId(yearButtonLabel)
 
-    act(() => user.click(yearAction))
+    await user.click(yearAction)
 
-    waitFor(() => {
+    await waitFor(() => {
       expect(getYearExpenses).toHaveBeenCalledTimes(1)
     })
   })
